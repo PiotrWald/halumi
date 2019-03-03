@@ -1,2 +1,0 @@
-require 'byebug'
-require 'halumi'
