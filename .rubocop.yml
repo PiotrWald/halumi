@@ -1,0 +1,62 @@
+AllCops:
+  TargetRubyVersion: 2.5.3
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+    - bin/*
+    - db/**/*
+    - config/**/*
+    - vendor/**/*
+    - Gemfile
+
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/GuardClause:
+  MinBodyLength: 5
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/AlignHash:
+  Enabled: false
+
+Layout/DotPosition:
+  EnforcedStyle: trailing
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/LineLength:
+  Max: 90
+
+Rails/InverseOf:
+  Enabled: false
