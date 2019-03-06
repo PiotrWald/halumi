@@ -10,7 +10,7 @@ AllCops:
     - Gemfile
 
 Rails:
-  Enabled: true
+  Enabled: false
 
 Documentation:
   Enabled: false
