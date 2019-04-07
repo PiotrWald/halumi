@@ -1,4 +1,5 @@
 # Halumi
+![Gem](https://img.shields.io/gem/v/halumi.svg) ![GitHub](https://img.shields.io/github/license/PiotrWald/halumi.svg)
 
 One of the patterns in Rails development I find usefull are query objects.
 They are essantialy service objects returning a ActiveRecord Relation. Using them
