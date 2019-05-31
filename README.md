@@ -1,4 +1,13 @@
 # Halumi
+![Gem](https://img.shields.io/gem/v/halumi.svg) ![GitHub](https://img.shields.io/github/license/PiotrWald/halumi.svg)
+
+One of the patterns in Rails development I find usefull are query objects.
+They are essantialy service objects returning a ActiveRecord Relation. Using them
+results in less code cluttering your controllers and models. Plus you can easily
+unit test each of your queries.
+
+This Gem adds simple DSL allowing you to build query objects and than merge
+them into one query (ActiveRecord::Relation)
 
 One of the cool patterns in Rails development are query objects.
 They are essantialy service objects returning a ActiveRecord Relation. Using them
