@@ -1,7 +1,7 @@
 require 'support/spec_helper'
 
 RSpec.describe 'param' do
-  context 'used inside a class definition' do
+  context 'without specyfing types' do
     before do
       class Model < ActiveRecord::Base; end
 
@@ -31,6 +31,36 @@ RSpec.describe 'param' do
       it 'returns hash values' do
         expect(subject.first_param).to eq(:first_value)
         expect(subject.second_param).to eq(:second_value)
+      end
+    end
+  end
+
+  context 'with a type specified' do
+    before do
+      require 'dry-types'
+
+      class TestClass < Halumi::Query
+        model Model
+
+        param :paramter, Dry::Types['strict.integer']
+      end
+    end
+
+    subject { TestClass.new(paramter: paramter) }
+
+    context 'initialized with correct paramter' do
+      let(:paramter) { 3 }
+
+      it 'returns the parameter' do
+        expect(subject.paramter).to eq(3)
+      end
+    end
+
+    context 'with invalid paramter' do
+      let(:paramter) { '3' }
+
+      it 'raises an error' do
+        expect { subject.paramter }.to raise_error(Dry::Types::ConstraintError)
       end
     end
   end
