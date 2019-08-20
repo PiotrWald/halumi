@@ -32,6 +32,7 @@ class PaginationQuery < Halumi::Query
   end
 end
 ```
+
 ```Ruby
 class PublishedArticlesQuery
   def execute
@@ -54,8 +55,24 @@ end
 This will return published articles, paginated and sorted by creation time
 
 ```Ruby
+params = { page: 2, per_page: 10 }
 
-  params = { page: 2, per_page: 10 }
+ArticlesQuery.new(params).call
+```
 
-  ArticlesQuery.new(params).call
+## Optional integration with Dry::Types
+
+Params with dry type specified behave like they would be sanatized by it. If a a type
+would rise an error, for example in case of strict types, the error will be rescued and
+query execution will be terminated
+
+```Ruby
+class PaginationQuery < Halumi::Query
+  param :per_page, Types::Strict::Integer
+  param :page, Types::Strict::Integer
+
+  def execute
+    relation.page(page).per(per_page)
+  end
+end
 ```
